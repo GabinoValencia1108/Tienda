@@ -1,6 +1,5 @@
-from wtforms import fields, validators
 from flask_wtf import FlaskForm
-from wtforms import StringField, DateField, IntegerField, SelectField
+from wtforms import StringField, DateField, IntegerField
 from wtforms.validators import DataRequired, InputRequired
 from WebApp import db
 class StockTienda(db.Model):
@@ -52,7 +51,6 @@ class Proveedores_Tienda(db.Model):
         self.numero_pedido = numero_pedido
     def __repr__(self):
         return '<Proveedores_Tienda %r>' % self.id_proveedores
-
 class ProductForm(FlaskForm):
     id_producto = StringField("Codigos:",validators=[InputRequired()])
     nombre_producto = StringField("Nombre del producto:",validators=[InputRequired()])
@@ -61,7 +59,6 @@ class ProductForm(FlaskForm):
     almacen = StringField("Almacen:",validators=[InputRequired()])
     cantidad = StringField("Cantidad:",validators=[InputRequired()])
     #catalogo = SelectField("Catalogo:")
-
 class NuevaSalidaForm(FlaskForm):
     id_salida = StringField("Id:",validators=[InputRequired()])
     codigo = StringField("Código:",validators=[InputRequired()])
@@ -71,7 +68,6 @@ class NuevaSalidaForm(FlaskForm):
     nombre_empleado = StringField("Nombre del empleado:",validators=[InputRequired()])
     fecha_registro = DateField("Fecha de entrega:", validators=[DataRequired()], format='%d-%m-%Y')
     cantidad = StringField("Cantidad:",validators=[InputRequired()])
-
 class ProveedorForm(FlaskForm):
     id_proveedores = IntegerField("Id Proveedor:",validators=[InputRequired()])
     nombre_proveedor = StringField("Nombre:",validators=[InputRequired()])
