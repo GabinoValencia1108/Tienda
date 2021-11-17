@@ -38,8 +38,13 @@ def register():
             db.session.add(nuevo_usuario)
             db.session.commit()
             flash("Usuario registrado exitosamente")
-        #return redirect(url_for("blue_login.login"))
+        return redirect(url_for("blue_login.login"))
     if form.errors:
         flash("Porfavor confirme la contraseña","danger")
     return render_template("register.html", form=form)
+@blue_login.route("/cerrar")
+def closed():
+    logout_user()
+    flash("cerrar")
+    return redirect(url_for("blue_login.login"))
 
