@@ -53,5 +53,4 @@ def register():
 @blue_login.route("/cerrar")
 def closed():
     logout_user()
-    flash("cerrar")
     return redirect(url_for("blue_login.login"))
