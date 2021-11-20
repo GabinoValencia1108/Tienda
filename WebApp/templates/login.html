@@ -1,13 +1,17 @@
 {% extends 'layout/base_login.html'%}
+{% block title %}
+Iniciar sesión
+{% endblock %}
 {% block content %}
     <div class="text-center">
         {% include 'fragment/_flash.html' %}
         <form action="{{url_for('blue_login.login')}}" method="post" class="form-signin">
             <img class="mb-4" src="{{url_for('static',filename='img/logo.png')}}" alt="" width="72" height="72">
-            <h1 class="h3 mb-3 font-weight-normal">Iniciar sesión</h1>
+            <h1 class="h3 mb-3 font-weight-normal"><i class="fas fa-user"></i>&nbsp;Iniciar sesión</h1>
             {% include 'fragment_login/_form_login.html' %}
-            <div class="checkbox mb-3"></div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit"><i class="fas fa-user"></i>&nbsp;Iniciar</button>
+            <button class="btn btn-lg btn-primary btn-block mb-3" type="submit">Iniciar</button><br>
+            <a href="{{url_for('blue_login.register')}}" class="link-primary">Registrarse</a>
         </form>
     </div>
+   <script src="{{url_for('static',filename='js/next.js')}}"></script>
 {% endblock %}
