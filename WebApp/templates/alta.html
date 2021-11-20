@@ -7,6 +7,7 @@ Alta de productos
     <div class="mb-4">
         <form action="{{url_for('index.registro')}}" method="post">
             {% include 'fragment/_form.html'%}
+            <label for="">Productos:</label>
             <select name="catalogo" id="catalogo" class="form-control mb-5">
                 <option disabled selected>selecciona un producto</option>
                 {% for paquete in paquetes %}

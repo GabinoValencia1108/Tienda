@@ -43,7 +43,7 @@ class Usuario(db.Model):
         """The foo property."""
         return False
 class Iniciar(FlaskForm):
-    Usuario = StringField("Usuario:", validators=[InputRequired()])
+    Usuario = StringField("Usuario", validators=[InputRequired()])
     contrasena = PasswordField("Password", validators=[InputRequired()])
     next = HiddenField("next")
 class Registrar(FlaskForm):
