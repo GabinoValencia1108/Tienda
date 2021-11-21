@@ -21,7 +21,7 @@ def login():
         usuario = Usuario.query.filter_by(username=form.Usuario.data).first()
         if usuario and usuario.check_password(form.contrasena.data):
             login_user(usuario)
-            flash("Bienvenido "+usuario.username)
+            flash("Bienvenido "+str(usuario.username).capitalize())
             next = request.form["next"]
             return redirect(next or url_for("index.main_page"))
         else:

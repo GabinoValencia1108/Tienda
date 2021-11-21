@@ -21,3 +21,9 @@
     a{
       text-decoration: none;
     }
+    .square
+    {
+      border:1px solid rgb(59, 59, 59);
+      border-radius:2px;
+      padding:5px
+    }
