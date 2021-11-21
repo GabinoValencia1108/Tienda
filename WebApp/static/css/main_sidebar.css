@@ -39,7 +39,7 @@
     padding: 10px 0px 10px 0px;
 }
 
-li:hover
+#sidebar li:hover
 {
     background-color: #232323;
     color:white;
