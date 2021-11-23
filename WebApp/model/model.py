@@ -1,19 +1,20 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, DateField, IntegerField
+from wtforms import StringField, DateField, IntegerField,SelectField
 from wtforms.validators import DataRequired, InputRequired
 from WebApp import db
 class StockTienda(db.Model):
     __tablename__='productos'
-    id_producto = db.Column(db.BigInteger,primary_key=True)
+    id_producto = db.Column(db.BigInteger,primary_key=True,autoincrement=True)
     nombre_producto = db.Column(db.String(255))
     descripcion = db.Column(db.String(255))
+    tipos = db.Column(db.String(255))
     categoria = db.Column(db.String(255))
     almacen = db.Column(db.String(255))
     cantidad = db.Column(db.String(255))
-    def __init__(self,id_producto,nombre_producto,descripcion,categoria,almacen,cantidad):
-        self.id_producto = id_producto
+    def __init__(self,nombre_producto,descripcion,tipos,categoria,almacen,cantidad):
         self.nombre_producto = nombre_producto
         self.descripcion = descripcion
+        self.tipos = tipos
         self.categoria = categoria
         self.almacen = almacen
         self.cantidad = cantidad
@@ -25,15 +26,17 @@ class Nueva_SalidaTienda(db.Model):
     codigo = db.Column(db.String(255))
     nombre_producto = db.Column(db.String(255))
     descripcion = db.Column(db.String(255))
+    tipos = db.Column(db.String(255))
     no_de_documento = db.Column(db.Integer)
     nombre_empleado = db.Column(db.String(255))
     fecha_registro = db.Column(db.DateTime)
     cantidad = db.Column(db.String(255))
-    def __init__(self,id_salida,codigo,nombre_producto,descripcion,no_de_documento,nombre_empleado,fecha_registro,cantidad):
+    def __init__(self,id_salida,codigo,nombre_producto,descripcion,tipos,no_de_documento,nombre_empleado,fecha_registro,cantidad):
         self.id_salida = id_salida
         self.codigo = codigo
         self.nombre_producto = nombre_producto
         self.descripcion = descripcion
+        self.tipos = tipos
         self.no_de_documento = no_de_documento
         self.nombre_empleado = nombre_empleado
         self.fecha_registro = fecha_registro
@@ -52,11 +55,11 @@ class Proveedores_Tienda(db.Model):
     def __repr__(self):
         return '<Proveedores_Tienda %r>' % self.id_proveedores
 class ProductForm(FlaskForm):
-    id_producto = StringField("Codigos:",validators=[InputRequired()])
-    nombre_producto = StringField("Nombre del producto:",validators=[InputRequired()])
+    nombre_producto = SelectField("Seleccionar producto",coerce=str)
     descripcion = StringField("Descripcion:",validators=[InputRequired()])
+    tipos = SelectField("Tipos:",validators=[InputRequired()],choices=[('Paquete', 'Paquete'), ('Pieza', 'Pieza'),('Rollo','Rollo'),('Litro','Litro'),('Metro','Metro'),('Caja','Caja'),('Kilogramo','Kilogramo'),('Garrafon','Garrafon'),('Galon','Galon')],coerce=str)
     categoria  = StringField("Categoria:",validators=[InputRequired()])
-    almacen = StringField("Almacen:",validators=[InputRequired()])
+    proveedor = SelectField("Proveedor:",validators=[InputRequired()],choices=[('gobierno', 'gobierno'), ('donación', 'donación')],coerce=str)
     cantidad = StringField("Cantidad:",validators=[InputRequired()])
     #catalogo = SelectField("Catalogo:")
 class NuevaSalidaForm(FlaskForm):

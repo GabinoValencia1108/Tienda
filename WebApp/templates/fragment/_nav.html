@@ -11,19 +11,16 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{current_user.username}}
+                        <i class="fas fa-box"></i>&nbsp;Crear
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li>
-                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="{{url_for('alta_catalogo.registrar_catalogo')}}">Añadir al Catalogo</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Crear Categoria</a>
                         </li>
-                        <li><hr class="dropdown-divider"></li>
                         <li>
-                            <a class="dropdown-item" href="{{url_for('blue_login.closed')}}">Serrar Sesión</a>
-                        </li>
                     </ul>
                 </li>
             </ul>
