@@ -11,30 +11,26 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-box"></i>&nbsp;Crear
+                        <i class="fas fa-box"></i>&nbsp;Reportes
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li>
-                            <a class="dropdown-item" href="{{url_for('alta_catalogo.registrar_catalogo')}}">Añadir al Catalogo</a>
+                            <a class="dropdown-item" href="{{url_for('crud.reporte')}}" rel="noopener noreferrer">Reportes</a>
                         </li>
-                        <li>
-                            <a class="dropdown-item" href="#">Crear Categoria</a>
-                        </li>
-                        <li>
                     </ul>
                 </li>
             </ul>
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="text-transform:capitalize">
-                        <i class="fas fa-user"></i>&nbsp{{current_user.username}}
+                        <i class="fas fa-user"></i>&nbsp <span id="name">{{current_user.fullname}}</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li>
-                            <a class="dropdown-item" href="#">Editar Perfil</a>
+                            <a class="dropdown-item" href="{{url_for('registrar_bp.perfil_edit')}}">Editar Perfil</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">Cambiar Contraseña</a>
+                            <a class="dropdown-item" href="">Cambiar Contraseña</a>
                         </li>
                         <li><hr class="dropdown-divider"></li>
                         <li>

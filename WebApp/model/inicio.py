@@ -1,20 +1,19 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, PasswordField,HiddenField
+from wtforms import StringField, PasswordField, PasswordField,HiddenField,SelectField
 from werkzeug.security import check_password_hash, generate_password_hash
 from wtforms.validators import EqualTo, InputRequired
-from sqlalchemy import Enum
-import enum
 from WebApp import db
-class RolUsuario(enum.Enum):
-    usuario_regular = 1
+
 class Usuario(db.Model):
     __tablename__ = 'usuario'
     id = db.Column(db.Integer, primary_key=True)
+    fullname = db.Column(db.String(255))
     username = db.Column(db.String(255))
     pwhash = db.Column(db.String(255))
-    rol = db.Column(Enum(RolUsuario))
+    rol = db.Column(db.Integer)
 
-    def __init__(self, username, pwhash, rol=RolUsuario.usuario_regular):
+    def __init__(self,fullname, username, pwhash, rol=1):
+        self.fullname = fullname
         self.username = username
         self.pwhash = generate_password_hash(pwhash)
         self.rol = rol
@@ -43,10 +42,12 @@ class Usuario(db.Model):
         """The foo property."""
         return False
 class Iniciar(FlaskForm):
-    Usuario = StringField("Usuario", validators=[InputRequired()])
-    contrasena = PasswordField("Password", validators=[InputRequired()])
+    Usuario = StringField("Usuario:", validators=[InputRequired()])
+    contrasena = PasswordField("Contraseña:", validators=[InputRequired()])
     next = HiddenField("next")
 class Registrar(FlaskForm):
-    Usuario = StringField("usuario", validators=[InputRequired()])
-    contrasena = PasswordField("contraseña", validators=[InputRequired(), EqualTo('confirmar_contrasena')])
-    confirmar_contrasena = PasswordField('Confirmar contraseña', validators=[InputRequired()])
+    tipo_de_cuenta = SelectField(u'Tipo de cuenta', choices=[('1', 'Regular'), ('6', 'Administrador')],validators=[InputRequired()])
+    nombre_completo = StringField("Nombre completo:", validators=[InputRequired()])
+    Usuario = StringField("Usuario:", validators=[InputRequired()])
+    contrasena = PasswordField("Contraseña:", validators=[InputRequired(), EqualTo('confirmar_contrasena')])
+    confirmar_contrasena = PasswordField('Confirmar contraseña:', validators=[InputRequired()])

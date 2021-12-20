@@ -10,8 +10,7 @@ Iniciar sesión
             <h1 class="h3 mb-3 font-weight-normal"><i class="fas fa-user"></i>&nbsp;Iniciar sesión</h1>
             {% include 'fragment_login/_form_login.html' %}
             <button class="btn btn-lg btn-primary btn-block btn-sm mb-3" type="submit">Iniciar</button><br>
-            <a href="{{url_for('blue_login.register')}}" class="link-primary">Crear una cuenta</a>
         </form>
     </div>
-   <script src="{{url_for('static',filename='js/next.js')}}"></script>
+    <script src="{{url_for('static',filename='js/next.js')}}"></script>
 {% endblock %}

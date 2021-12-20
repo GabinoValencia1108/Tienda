@@ -12,9 +12,9 @@
 {% with mensajes = get_flashed_messages()%}
 {% if mensajes %}
 {% for mensaje in mensajes %}
-<div class="alert alert-primary alert-dismissible d-flex align-items-center" role="alert">
+<div class="alert alert-success alert-dismissible d-flex align-items-center" role="alert">
     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
-    <div class="">
+    <div>
         {{mensaje}}
     </div>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

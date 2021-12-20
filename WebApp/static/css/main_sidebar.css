@@ -12,6 +12,9 @@
     transition: all 500ms linear;
     
 }
+a{
+    text-decoration: none;
+}
 
 #sidebar.active {
     left: 0px;
@@ -23,27 +26,19 @@
     margin-left: 0px;
     padding-left: 0px;
     text-align: center;
-    padding: 10px 0px 10px 0px;
 }
 #sidebar li
 {
     color: white;
     /* padding-top, padding-right, padding-bottom, padding-left*/
-    padding: 10px 0px 10px 0px;
+    padding: 20px 0px 5px 0px;
 }
 #sidebar li:hover
 {
-    background-color: black;
     color: white;
     /* padding-top, padding-right, padding-bottom, padding-left*/
-    padding: 10px 0px 10px 0px;
-}
-
-#sidebar li:hover
-{
-    background-color: #232323;
-    color:white;
-    cursor: pointer;
+    padding: 20px 0px 5px 0px;
+    text-decoration: underline;
 }
 
 #sidebar .toggle-btn {

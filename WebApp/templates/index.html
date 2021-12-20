@@ -4,7 +4,9 @@
 {% endblock %}
 {% block container %}
     {% include 'fragment/_flash.html' %}
-    <div class="container mb-5">
-        asd
-    </div>
+    {% if current_user.rol ==1 %}
+    <h1 class="display-4 text-center">Regular</h1>
+    {% else %}
+    <h1 class="display-4 text-center">Admin</h1>
+    {% endif %}
 {% endblock %}
