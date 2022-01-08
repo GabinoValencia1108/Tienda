@@ -1,0 +1,31 @@
+<form action="{{url_for('stock_bp.stock_edit',id=stock['id_stock'])}}" method="post">
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col">
+                {{form.descripcion.label(class="text-center")}}
+                {{form.descripcion(class='form-control')}}
+            </div>
+            <div class="col">
+                {{form.unidad.label(class="text-center")}}
+                {{form.unidad(class='form-control')}}
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                {{form.categoria.label(class="text-center")}}
+                {{form.categoria(class='form-control')}}
+            </div>
+            <div class="col">
+                {{form.stock.label(class="text-center")}}
+                {{form.stock(class='form-control')}}
+            </div>
+        </div> <br/>
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-3">
+                    <button type="submit" class="btn btn-primary">Modificar</button>
+                    <button type="reset" class="btn btn-primary">Borrar</button>
+                </div>
+            </div>
+        </form>
+    </div>

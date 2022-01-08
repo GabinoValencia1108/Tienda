@@ -1,19 +1,31 @@
 <form action="{{ url_for('salidas_bp.salida_edit',id=id_salida['id_salida'])}}" method="post">
     <div class="container">
         <div class="row align-items-start">
-            <div class="col">
+            <div class="col-xl-4">
+                {{ form.fecha.label }}
+                {{ form.fecha(class='form-control') }}
+            </div>
+            <div class="col-xl-4">
+                {{ form.solicita.label }}
+                {{ form.solicita(class='form-control') }}
+            </div>
+            <div class="col-xl-4">
                 {{ form.descripcion.label }}
                 {{ form.descripcion(class='form-control') }}
             </div>
-            <div class="col">
+        </div>
+        <div class="row align-items-center">
+            <div class="col-xl-4">
+                {{ form.unidad.label }}
+                {{ form.unidad(class='form-control') }}
+            </div>
+            <div class="col-xl-4">
                 {{ form.cantidad.label }}
                 {{ form.cantidad(class='form-control') }}
             </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="col">
-                {{ form.fecha.label }}
-                {{ form.fecha(class='form-control') }}
+            <div class="col-xl-4">
+                {{ form.observaciones.label }}
+                {{ form.observaciones(class='form-control') }}
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-from flask import Flask,render_template,Blueprint,flash,redirect,url_for,request
+from flask import render_template,Blueprint,flash,redirect,url_for,request
 from ...model.frmProveedores import FrmProveedores
 from ...model.DBProveedores import DBProveedor
 from WebApp import db

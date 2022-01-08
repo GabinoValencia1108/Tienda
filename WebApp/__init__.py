@@ -23,7 +23,7 @@ from WebApp.modules.iniciar.login_user import blue_login
 from WebApp.modules.home.index import index
 from WebApp.modules.home.CRUD import crud
 from WebApp.modules.home.ingresos import ingresos_bp
-from WebApp.modules.home.productos import productos_bp
+from WebApp.modules.home.stock import stock_bp
 from WebApp.modules.home.proveedores import proveedores_bp
 from WebApp.modules.home.salidas import salidas_bp
 from WebApp.modules.home.empleados import empleados_bp
@@ -34,7 +34,7 @@ app.register_blueprint(index)
 app.register_blueprint(blue_login)
 app.register_blueprint(crud)
 app.register_blueprint(ingresos_bp)
-app.register_blueprint(productos_bp)
+app.register_blueprint(stock_bp)
 app.register_blueprint(proveedores_bp)
 app.register_blueprint(salidas_bp)
 app.register_blueprint(empleados_bp)

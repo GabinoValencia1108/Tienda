@@ -1,9 +1,9 @@
-from flask import Flask,render_template,Blueprint,flash,redirect,url_for,request
+from flask import render_template,Blueprint,flash,redirect,url_for,request
 from flask_login import current_user
 from ...model.frmSalidas import FrmSalidas
 from ...model.DBSalidas import DBSalidas
 from ...model.DBEmpleados import DBEmpleados
-from ...model.DBProductos import DBProductos
+from ...model.DBStock import DBStock
 from ...model.frm_edit_Salida import FrmEditSalida
 from WebApp import db
 salidas_bp = Blueprint("salidas_bp",__name__)
@@ -11,12 +11,12 @@ salidas_bp = Blueprint("salidas_bp",__name__)
 def salidas_add():
     frmSalidas = FrmSalidas(meta={'csrf': False})
     list_empleado = [(empleado.nombre_empleado,empleado.nombre_empleado)for empleado in DBEmpleados.query.all()]
-    frmSalidas.empleado_que_recibe.choices = list_empleado
-    list_descripcion = [(des.descripcion,des.descripcion)for des in DBProductos.query.all()]
+    frmSalidas.solicita.choices = list_empleado
+    list_descripcion = [(des.descripcion,des.descripcion)for des in DBStock.query.all()]
     frmSalidas.descripcion.choices = list_descripcion
     lista_salidas = DBSalidas.query.order_by(DBSalidas.id_salida)
     if frmSalidas.validate_on_submit():
-        nueva_salida = DBSalidas(frmSalidas.empleado_que_recibe.data,frmSalidas.descripcion.data,frmSalidas.observacion.data,frmSalidas.cantidad.data,frmSalidas.fecha.data)
+        nueva_salida = DBSalidas(frmSalidas.fecha.data,frmSalidas.solicita.data,frmSalidas.descripcion.data,frmSalidas.unidad.data,frmSalidas.cantidad.data,frmSalidas.observaciones.data)
         db.session.add(nueva_salida)
         db.session.commit()
         flash("Salida completada Exitosamente!")
@@ -28,14 +28,17 @@ def salidas_add():
 def salida_edit(id):
     id_salida = DBSalidas.query.get_or_404(id)
     form_edit_salida = FrmEditSalida(meta={'csrf': False})
-    list_descripcion = [(des.descripcion,des.descripcion)for des in DBProductos.query.all()]
+    list_descripcion = [(des.descripcion,des.descripcion)for des in DBStock.query.all()]
     form_edit_salida.descripcion.choices = list_descripcion
     form_edit_salida.cantidad.data = id_salida.cantidad
     if form_edit_salida.validate_on_submit():
         nuevo_dato = DBSalidas.query.filter(DBSalidas.id_salida == id).first()
-        nuevo_dato.descripcion = request.form['descripcion']
-        nuevo_dato.cantidad = request.form['cantidad']
         nuevo_dato.fecha = request.form['fecha']
+        nuevo_dato.solicita = request.form['solicita']
+        nuevo_dato.descripcion = request.form['descripcion']
+        nuevo_dato.unidad = request.form['unidad']
+        nuevo_dato.cantidad = request.form['cantidad']
+        nuevo_dato.observaciones = request.form['observaciones']
         db.session.add(nuevo_dato)
         db.session.commit()
         flash("Salida Editada Exitosamente!")

@@ -20,7 +20,7 @@ function DeleteIngreso()
         modal.querySelector("#eliminar_categoria").setAttribute("href","/eliminar-ingreso/"+id)
     })
 }
-function DeleteProducto()
+function DeleteStock()
 {
     var modal = document.getElementById("deleteModal")
     modal.addEventListener('show.bs.modal',function(event){
@@ -28,7 +28,7 @@ function DeleteProducto()
         var name = button.getAttribute("data-bs-name")
         var id = button.getAttribute("data-bs-id")
         modal.querySelector(".modal-title span").innerHTML=name
-        modal.querySelector("#eliminar_categoria").setAttribute("href","/eliminar-producto/"+id)
+        modal.querySelector("#eliminar_categoria").setAttribute("href","/eliminar-stock/"+id)
     })
 }
 function DeleteProveedor()

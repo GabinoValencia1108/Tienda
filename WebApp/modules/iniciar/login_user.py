@@ -2,7 +2,7 @@ from flask import render_template, redirect, session, url_for, flash, get_flashe
 from flask.blueprints import Blueprint
 from flask_login import login_user, logout_user, current_user,login_required
 from WebApp import login_manager
-from WebApp.model.inicio import Iniciar, Usuario, Registrar, db
+from WebApp.model.inicio import Iniciar, Usuario
 from WebApp import db
 blue_login = Blueprint("blue_login", __name__)
 
