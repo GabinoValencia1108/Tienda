@@ -1,3 +1,4 @@
+from re import L
 from flask import Flask,render_template,Blueprint,flash,redirect,url_for,request,send_file
 from fpdf import FPDF
 from ...model.frmInventario import FrmInventario
@@ -40,6 +41,8 @@ def download():
         pdf.cell(10,6,"#",1)
         pdf.cell(10,6,"#",1)
         pdf.cell(15,6,"#",1,1)
+        pdf.multi_cell(35,9,"",0)
+
         ####tabla
         pdf.set_font('Arial', 'B', 10)
         pdf.cell(10,8,"No",1)

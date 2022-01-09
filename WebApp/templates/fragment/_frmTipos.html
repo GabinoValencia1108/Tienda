@@ -1,9 +1,9 @@
-<form action="{{url_for('proveedores_bp.proveedores')}}" method="post">
+<form action="{{url_for('tipos_bp.tipos')}}" method="post">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-xl-12">
-                {{form.proveedor.label}}
-                {{form.proveedor(class='form-control')}}
+                {{form.tipos.label}}
+                {{form.tipos(class='form-control')}}
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
                 No
             </th>
             <th>
-                Proveedor
+                Tipos de ingresos
             </th>
             <th>
                 Opciones
@@ -34,20 +34,20 @@
         </tr>
     </thead>
     <tbody>
-        {% for proveedor in proveedores %}
-            {% if proveedor %}
+        {% for tipos in tipos %}
+            {% if tipos %}
                 <tr>
                     <td>
                         {{loop.index}}
                     </td>
                     <td>
-                        {{proveedor['proveedor']}}
+                        {{tipos['tipos']}}
                     </td>
                     <td>
-                        <a href="{{url_for('proveedores_bp.proveedor_edit',id=proveedor['id_proveedor'])}}" title="Editar proveedor" rel="noopener noreferrer">
+                        <a href="{{url_for('tipos_bp.tipos_edit',id=tipos['id_tipos'])}}" title="Editar tipos" rel="noopener noreferrer">
                             <i class="fa fa-pen" style="color:mediumseagreen"></i>
                         </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" title="Eliminar proveedor" data-bs-name="{{proveedor['proveedor']}}" data-bs-id="{{proveedor['id_proveedor']}}" href="" rel="noopener noreferrer">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" title="Eliminar tipos" data-bs-name="{{tipos['tipos']}}" data-bs-id="{{tipos['id_tipos']}}" href="" rel="noopener noreferrer">
                             <i class="fa fa-trash" style="color:rgb(255, 55, 55)"></i>
                         </a>
                     </td>
@@ -68,7 +68,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                seguro que desea borrar el proveedor?
+                seguro que desea borrar el tipo de ingreso?
             </div>
             <div class="modal-footer">
                 <a href="#" id="eliminar_categoria" class="btn btn-danger" rel="noopener noreferrer" title="Eliminar">
@@ -80,5 +80,5 @@
     </div>
 </div>
 <script>
-    DeleteProveedor()
+    DeleteTipos()
 </script>

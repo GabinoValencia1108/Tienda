@@ -17,7 +17,7 @@ def ingreso_add():
     frmIngresos.unidad.choices = list_unidad
     frmIngresos.categoria.choices = list_categoria
     if frmIngresos.validate_on_submit():
-        nuevo_ingreso = DBIngresos(frmIngresos.fecha.data,frmIngresos.proveedor.data,frmIngresos.descripcion.data,frmIngresos.unidad.data,frmIngresos.categoria.data,frmIngresos.cantidad.data)
+        nuevo_ingreso = DBIngresos(frmIngresos.fecha.data,frmIngresos.tipo_ingreso.data,frmIngresos.descripcion.data,frmIngresos.unidad.data,frmIngresos.categoria.data,frmIngresos.cantidad.data)
         db.session.add(nuevo_ingreso)
         db.session.commit()
         flash("Nuevo Ingreso Registrado Exitosamente!")
@@ -32,7 +32,7 @@ def editar_ingreso(id):
     fecha = ingreso.fecha
     fecha_dt = datetime.strptime(fecha, '%Y-%m-%d')
     frmIngresos.fecha.data = fecha_dt
-    frmIngresos.proveedor.data = ingreso.proveedor
+    frmIngresos.tipo_ingreso.data = ingreso.tipo_ingreso
     frmIngresos.descripcion.data = ingreso.descripcion
     frmIngresos.unidad.data = ingreso.unidad
     frmIngresos.categoria.data = ingreso.categoria
@@ -40,7 +40,7 @@ def editar_ingreso(id):
     if frmIngresos.validate_on_submit():
         nuevos_datos = DBIngresos.query.filter(DBIngresos.id_ingreso==id).first()
         nuevos_datos.fecha = request.form['fecha']
-        nuevos_datos.proveedor = request.form['proveedor']
+        nuevos_datos.tipo_ingreso = request.form['tipo_ingreso']
         nuevos_datos.descripcion = request.form['descripcion']
         nuevos_datos.unidad = request.form['unidad']
         nuevos_datos.categoria = request.form['categoria']

@@ -7,8 +7,8 @@
                 {{form.fecha(class='form-control')}}
             </div>
             <div class="col-xl-4">
-                {{form.proveedor.label}}
-                {{form.proveedor(class='form-control')}}
+                {{form.tipo_ingreso.label}}
+                {{form.tipo_ingreso(class='form-control')}}
             </div>
             <div class="col-xl-4">
                 {{ form.descripcion.label(class="text-center") }}
@@ -51,7 +51,7 @@
                     Fecha
                 </th>
                 <th>
-                    Proveedor
+                    Tipo ingreso
                 </th>
                 <th>
                     Descripción
@@ -81,7 +81,7 @@
                             {{ingreso['fecha']}}
                         </td>
                         <td>
-                            {{ingreso['proveedor']}}
+                            {{ingreso['tipo_ingreso']}}
                         </td>
                         <td>
                             {{ingreso['descripcion']}}
