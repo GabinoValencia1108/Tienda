@@ -6,7 +6,29 @@ function DeleteCategoria()
         var name = button.getAttribute("data-bs-name")
         var id = button.getAttribute("data-bs-id")
         modal.querySelector(".modal-title span").innerHTML=name
-        modal.querySelector("#eliminar_categoria").setAttribute("href","/eliminar/"+id)
+        modal.querySelector("#eliminar_categoria").setAttribute("href","/eliminar-categoria/"+id)
+    })
+}
+function DeleteUnidad()
+{
+    var modal = document.getElementById("deleteModal")
+    modal.addEventListener('show.bs.modal',function(event){
+        var button = event.relatedTarget
+        var name = button.getAttribute("data-bs-name")
+        var id = button.getAttribute("data-bs-id")
+        modal.querySelector(".modal-title span").innerHTML=name
+        modal.querySelector("#eliminar_unidad").setAttribute("href","/eliminar-unidad/"+id)
+    })
+}
+function DeleteMaterial()
+{
+    var modal = document.getElementById("deleteModal")
+    modal.addEventListener('show.bs.modal',function(event){
+        var button = event.relatedTarget
+        var name = button.getAttribute("data-bs-name")
+        var id = button.getAttribute("data-bs-id")
+        modal.querySelector(".modal-title span").innerHTML=name
+        modal.querySelector("#eliminar_materiales").setAttribute("href","/eliminar-materiales/"+id)
     })
 }
 function DeleteIngreso()
@@ -31,7 +53,7 @@ function DeleteStock()
         modal.querySelector("#eliminar_categoria").setAttribute("href","/eliminar-stock/"+id)
     })
 }
-function DeleteProveedor()
+function DeleteCategoria()
 {
     var modal = document.getElementById("deleteModal")
     modal.addEventListener('show.bs.modal',function(event){
@@ -39,7 +61,18 @@ function DeleteProveedor()
         var name = button.getAttribute("data-bs-name")
         var id = button.getAttribute("data-bs-id")
         modal.querySelector(".modal-title span").innerHTML=name
-        modal.querySelector("#eliminar_categoria").setAttribute("href","/eliminar-proveedor/"+id)
+        modal.querySelector("#eliminar_categoria").setAttribute("href","/eliminar-categoria/"+id)
+    })
+}
+function DeleteTipos()
+{
+    var modal = document.getElementById("deleteModal")
+    modal.addEventListener('show.bs.modal',function(event){
+        var button = event.relatedTarget
+        var name = button.getAttribute("data-bs-name")
+        var id = button.getAttribute("data-bs-id")
+        modal.querySelector(".modal-title span").innerHTML=name
+        modal.querySelector("#eliminar_tipos").setAttribute("href","/eliminar-tipos/"+id)
     })
 }
 function DeleteSalida()
@@ -50,7 +83,7 @@ function DeleteSalida()
         var name = button.getAttribute("data-bs-name")
         var id = button.getAttribute("data-bs-id")
         modal.querySelector(".modal-title span").innerHTML=name
-        modal.querySelector("#eliminar_categoria").setAttribute("href","/eliminar-salida/"+id)
+        modal.querySelector("#eliminar_salida").setAttribute("href","/eliminar-salida/"+id)
     })
 }
 

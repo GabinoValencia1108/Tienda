@@ -93,7 +93,11 @@
                             {{ingreso['categoria']}}
                         </td>
                         <td>
-                            {{ingreso['cantidad']}}
+                            {% if(ingreso['cantidad']!= '3')%}
+                                <span style="color:#0943C2;">{{ingreso['cantidad']}}</span>
+                            {% else %}
+                                <span style="color:red;">{{ingreso['cantidad']}}</span>
+                            {% endif %}
                         </td>
                         <td>
                             <a href="{{url_for('ingresos_bp.editar_ingreso',id=ingreso['id_ingreso'])}}" title="Editar ingreso" rel="noopener noreferrer">

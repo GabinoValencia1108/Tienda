@@ -20,15 +20,22 @@
                 {{ form.unidad(class='form-control') }}
             </div>
             <div class="col-xl-4">
+                {{form.tipo_ingreso.label}}
+                {{form.tipo_ingreso(class='form-control')}}
+            </div>
+            <div class="col-xl-4">
                 {{ form.cantidad.label }}
                 {{ form.cantidad(class='form-control') }}
             </div>
-            <div class="col-xl-4">
-                {{ form.observaciones.label }}
-                {{ form.observaciones(class='form-control') }}
+        <div class="row align-items-center">
+            <div class="col">
+                {{ form.observaciones.label}}
+                {{ form.observaciones(class='form-control')}}
             </div>
+        </div>    
         </div>
     </div>
+    
     <br/>
     <div class="container">
         <div class="row">
@@ -60,6 +67,9 @@
                 Unidad
             </th>
             <th>
+                tipo ingreso
+            </th>
+            <th>
                 Cantidad
             </th>
             <th>
@@ -88,6 +98,9 @@
                     </td>
                     <td>
                         {{salida['unidad']}}
+                    </td>
+                    <td>
+                        {{salida['tipo_ingreso']}}
                     </td>
                     <td>
                         {{salida['cantidad']}}
@@ -123,7 +136,7 @@
                 seguro que desea borrar la salida?
             </div>
             <div class="modal-footer">
-                <a href="#" id="eliminar_categoria" class="btn btn-danger" rel="noopener noreferrer" title="Eliminar">
+                <a href="#" id="eliminar_salida" class="btn btn-danger" rel="noopener noreferrer" title="Eliminar">
                     <i class="fa fa-trash"></i>
                     Eliminar</a>
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>

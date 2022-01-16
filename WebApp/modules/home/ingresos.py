@@ -1,18 +1,25 @@
 from flask import render_template,Blueprint,flash,redirect,url_for,request
+from WebApp.model.DBCategoria import DBCategoria
+from WebApp.model.DBMateriales import DBMateriales
+
+from WebApp.model.DBUnidad import DBUnidad
 from ...model.frmIngresos import FrmIngresos
 from ...model.frm_edit_Ingreso import FrmIngresos_edit
 from datetime import datetime
 from ...model.DBIngresos import DBIngresos
-from ...model.DBStock import DBStock
+from ...model.DBMateriales import DBMateriales
+from ...model.DBTipos import DBTipos
 from WebApp import db
 ingresos_bp = Blueprint("ingresos_bp",__name__)
 @ingresos_bp.route('/ingresos/',methods=['GET','POST'])
 def ingreso_add():
     frmIngresos = FrmIngresos(meta={'csrf': False})
     lista_ingresos = DBIngresos.query.order_by(DBIngresos.id_ingreso)
-    list_descripcion = [(des.descripcion,des.descripcion)for des in DBStock.query.all()]
-    list_unidad = [(des.unidad,des.unidad)for des in DBStock.query.all()]
-    list_categoria = [(des.categoria,des.categoria)for des in DBStock.query.all()]
+    list_descripcion = [(des.descripcion,des.descripcion)for des in DBMateriales.query.all()]
+    tipos_ingresos = [(tipo.tipos,tipo.tipos)for tipo in DBTipos.query.all()]
+    frmIngresos.tipo_ingreso.choices = tipos_ingresos
+    list_unidad = [(des.unidad,des.unidad)for des in DBUnidad.query.all()]
+    list_categoria = [(des.categoria,des.categoria)for des in DBCategoria.query.all()]
     frmIngresos.descripcion.choices = list_descripcion
     frmIngresos.unidad.choices = list_unidad
     frmIngresos.categoria.choices = list_categoria
