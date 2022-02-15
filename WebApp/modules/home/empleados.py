@@ -2,8 +2,13 @@ from re import template
 from flask import Flask,render_template,Blueprint,flash,redirect,url_for,request
 from ...model.frmEmpleados import FrmEmpleados
 from ...model.DBEmpleados import DBEmpleados
+from flask_login import login_required
 from WebApp import db
 empleados_bp = Blueprint("empleados_bp",__name__)
+@empleados_bp.before_request
+@login_required
+def constructor():
+    pass
 @empleados_bp.route('/empleados/',methods=['GET','POST'])
 def empleados_add():
     frmEmpleados = FrmEmpleados(meta={'csrf': False})

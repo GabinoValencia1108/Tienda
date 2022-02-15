@@ -1,0 +1,19 @@
+<form action="{{url_for('unidad_bp.unidad_edit',id=unidad['id_unidad'])}}" method="post">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xl-12">
+                {{form.unidad.label}}
+                {{form.unidad(class='form-control')}}
+            </div>
+        </div>
+    </div> 
+    <br/>
+    <div class="container">
+        <div class="row">
+            <div class="col d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">Modificar</button> &nbsp;&nbsp;
+                <button type="reset" class="btn btn-primary">Borrar</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,9 +1,9 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,DateField
+from wtforms import StringField,SelectField
 from wtforms import validators
 from wtforms.validators import DataRequired
-class FrmStock(FlaskForm):
+class FrmMateriales(FlaskForm):
     descripcion = StringField("Descripción:",validators=[DataRequired()])
-    unidad = StringField("Unidad:",validators=[DataRequired()])
-    categoria = StringField("Categoría:",validators=[DataRequired()])
+    unidad = SelectField("Unidad:",validators=[DataRequired()])
+    categoria = SelectField("Categoría:",validators=[DataRequired()])
     stock = StringField("Stock:",validators=[DataRequired()])

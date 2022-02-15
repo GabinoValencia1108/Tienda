@@ -1,40 +1,58 @@
+<script>
+    function cualquiera(){
+        let producto=document.getElementById("descripcion")
+        let cantidad=document.getElementById("cantidad")
+        let lista=document.getElementById("agregar")
+        lista.innerHTML=lista.value+producto.value+","+cantidad.value+"\n"
+    }
+</script>
 <form action="{{ url_for('salidas_bp.salidas_add') }}" method="post">
     <div class="container">
         <div class="row align-items-start">
-            <div class="col-xl-4">
+            <div class="col-xl-6">
                 {{ form.fecha.label }}
                 {{ form.fecha(class='form-control') }}
             </div>
-            <div class="col-xl-4">
+            <div class="col-xl-6">
                 {{ form.solicita.label }}
                 {{ form.solicita(class='form-control') }}
             </div>
-            <div class="col-xl-4">
+        </div>    
+        <div class="row align-items-center">
+            <div class="col-xl-6">
+                {{form.tipo_salida.label}}
+                {{form.tipo_salida(class='form-control')}}
+            </div>
+            <div class="col-xl-6">
+                {{ form.observaciones.label}}
+                {{ form.observaciones(class='form-control')}}
+            </div>  
+        </div>
+        
+        <div class="row align-items-center">
+            <div class="col-xl-6">
                 {{ form.descripcion.label }}
                 {{ form.descripcion(class='form-control') }}
             </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="col-xl-4">
-                {{ form.unidad.label }}
-                {{ form.unidad(class='form-control') }}
-            </div>
-            <div class="col-xl-4">
+            <div class="col-xl-6">
                 {{ form.cantidad.label }}
                 {{ form.cantidad(class='form-control') }}
-            </div>
-            <div class="col-xl-4">
-                {{ form.observaciones.label }}
-                {{ form.observaciones(class='form-control') }}
+            </div> 
+        </div> 
+        <div class="row align-items-center">
+            <div class="col-xl-12">
+                {{form.agregar.label}}
+                {{form.agregar(class='form-control')}}
             </div>
         </div>
     </div>
+    
     <br/>
     <div class="container">
         <div class="row">
             <div class="col d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary">Registrar</button>&nbsp;
-                <button type="reset" class="btn btn-primary">Borrar</button>
+                <button type="button" onclick="cualquiera()" class="btn btn-primary">Añadir</button>&nbsp;
+                <button type="submit" class="btn btn-primary">Registrar</button>
             </div>
         </div>
     </form>
@@ -57,7 +75,7 @@
                 Descripción
             </th>
             <th>
-                Unidad
+                Tipo de salida
             </th>
             <th>
                 Cantidad
@@ -87,7 +105,7 @@
                         {{salida['descripcion']}}
                     </td>
                     <td>
-                        {{salida['unidad']}}
+                        {{salida['tipo_salida']}}
                     </td>
                     <td>
                         {{salida['cantidad']}}
@@ -123,7 +141,7 @@
                 seguro que desea borrar la salida?
             </div>
             <div class="modal-footer">
-                <a href="#" id="eliminar_categoria" class="btn btn-danger" rel="noopener noreferrer" title="Eliminar">
+                <a href="#" id="eliminar_salida" class="btn btn-danger" rel="noopener noreferrer" title="Eliminar">
                     <i class="fa fa-trash"></i>
                     Eliminar</a>
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>

@@ -1,24 +1,9 @@
-
-<form action="{{url_for('stock_bp.stock_add')}}" method="post">
+<form action="{{url_for('unidad_bp.unidad_add')}}" method="post">
     <div class="container">
-        <div class="row align-items-start">
-            <div class="col">
-                {{form.descripcion.label}}
-                {{form.descripcion(class='form-control')}}
-            </div>
-            <div class="col">
+        <div class="row align-items-center">
+            <div class="col-xl-12">
                 {{form.unidad.label}}
                 {{form.unidad(class='form-control')}}
-            </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="col">
-                {{form.categoria.label}}
-                {{form.categoria(class='form-control')}}
-            </div>
-            <div class="col">
-                {{form.stock.label}}
-                {{form.stock(class='form-control')}}
             </div>
         </div>
     </div>
@@ -41,16 +26,7 @@
                 No
             </th>
             <th>
-                Descripción
-            </th>
-            <th>
                 Unidad
-            </th>
-            <th>
-                Categoría
-            </th>
-            <th>
-                Stock
             </th>
             <th>
                 Opciones
@@ -58,29 +34,20 @@
         </tr>
     </thead>
     <tbody>
-        {% for stock in stock %}
-            {% if stock %}
+        {% for unidad in unidad %}
+            {% if unidad %}
                 <tr>
                     <td>
                         {{loop.index}}
                     </td>
                     <td>
-                        {{stock['descripcion']}}
+                        {{unidad['unidad']}}
                     </td>
                     <td>
-                        {{stock['unidad']}}
-                    </td>
-                    <td>
-                        {{stock['categoria']}}
-                    </td>
-                    <td>
-                        {{stock['stock']}}
-                    </td>
-                    <td>
-                        <a href="{{url_for('stock_bp.stock_edit',id=stock['id_stock'])}}" title="Editar ingreso" rel="noopener noreferrer">
+                        <a href="{{url_for('unidad_bp.unidad_edit',id=unidad['id_unidad'])}}" title="Editar unidad" rel="noopener noreferrer">
                             <i class="fa fa-pen" style="color:mediumseagreen"></i>
                         </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" title="Eliminar ingreso" data-bs-name="{{stock['descripcion']}}" data-bs-id="{{stock['id_stock']}}" href="" rel="noopener noreferrer">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" title="Eliminar unidad" data-bs-name="{{unidad['unidad']}}" data-bs-id="{{unidad['id_unidad']}}" href="" rel="noopener noreferrer">
                             <i class="fa fa-trash" style="color:rgb(255, 55, 55)"></i>
                         </a>
                     </td>
@@ -101,10 +68,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                seguro que desea borrar el ingreso?
+                Seguro que deseas borrar esta unidad?
             </div>
             <div class="modal-footer">
-                <a href="#" id="eliminar_categoria" class="btn btn-danger" rel="noopener noreferrer" title="Eliminar">
+                <a href="#" id="eliminar_unidad" class="btn btn-danger" rel="noopener noreferrer" title="Eliminar">
                     <i class="fa fa-trash"></i>
                     Eliminar</a>
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
@@ -113,5 +80,5 @@
     </div>
 </div>
 <script>
-    DeleteStock()
+    DeleteUnidad()
 </script>

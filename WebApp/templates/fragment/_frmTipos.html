@@ -1,10 +1,17 @@
-<form action="{{url_for('tipos_bp.tipos')}}" method="post">
+<form action="{{url_for('tipos_bp.tipos_add')}}" method="post">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-xl-12">
                 {{form.tipos.label}}
                 {{form.tipos(class='form-control')}}
             </div>
+        </div>
+        <br/>
+        <div class="row align-items-center">
+            <div class="col-xl-12">
+                {{form.tipos_salida.label}}
+                {{form.tipos_salida(class='form-control')}}
+            </div> 
         </div>
     </div>
     <br/>
@@ -26,7 +33,10 @@
                 No
             </th>
             <th>
-                Tipos de ingresos
+                Tipos de entradas
+            </th>
+            <th>
+                Tipos de salidas
             </th>
             <th>
                 Opciones
@@ -42,6 +52,9 @@
                     </td>
                     <td>
                         {{tipos['tipos']}}
+                    </td>
+                    <td>
+                        {{tipos['tipos_salida']}}
                     </td>
                     <td>
                         <a href="{{url_for('tipos_bp.tipos_edit',id=tipos['id_tipos'])}}" title="Editar tipos" rel="noopener noreferrer">
@@ -71,7 +84,7 @@
                 seguro que desea borrar el tipo de ingreso?
             </div>
             <div class="modal-footer">
-                <a href="#" id="eliminar_categoria" class="btn btn-danger" rel="noopener noreferrer" title="Eliminar">
+                <a href="#" id="eliminar_tipos" class="btn btn-danger" rel="noopener noreferrer" title="Eliminar">
                     <i class="fa fa-trash"></i>
                     Eliminar</a>
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>

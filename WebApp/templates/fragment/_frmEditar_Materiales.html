@@ -1,0 +1,33 @@
+<form action="{{url_for('materiales_bp.materiales_edit',id=materiales['id_materiales'])}}" method="post">
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col">
+                {{form.descripcion.label}}
+                {{form.descripcion(class='form-control')}}
+            </div>
+            <div class="col">
+                {{form.unidad.label}}
+                {{form.unidad(class='form-control')}}
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                {{ form.categoria.label}}
+                {{ form.categoria(class="form-control") }}
+            </div>
+            <div class="col">
+                {{ form.stock.label}}
+                {{ form.stock(class="form-control") }}
+            </div>
+        </div>
+    </div> 
+    <br/>
+    <div class="container">
+        <div class="row">
+            <div class="col d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">Modificar</button> &nbsp;
+                <button type="reset" class="btn btn-primary">Borrar</button>
+            </div>
+        </div>
+    </form>
+</div>

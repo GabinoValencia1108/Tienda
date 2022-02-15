@@ -1,14 +1,15 @@
-from re import L
-from flask import Flask,render_template,Blueprint,flash,redirect,url_for,request,send_file
+from datetime import datetime
+from flask import Flask,render_template,Blueprint,request,send_file
 from fpdf import FPDF
 from ...model.frmInventario import FrmInventario
 from ...model.DBIngresos import DBIngresos
-
+from flask_login import login_required
 from datetime import datetime
-from ...model.DBStock import DBStock
-from ...model.DBSalidas import DBSalidas
-from WebApp import db
 inventario_bp = Blueprint("inventario_bp",__name__)
+@inventario_bp.before_request
+@login_required
+def constructor():
+    pass
 @inventario_bp.route('/inventario/',methods=['GET','POST'])
 def inventario_add():
     frmInventario = FrmInventario(meta={'csrf': False})
@@ -16,8 +17,9 @@ def inventario_add():
 @inventario_bp.route('/download/',methods=['GET','POST'])
 def download():
     f= request.form['fecha_inicio']
-    datos = DBIngresos.query.filter(DBIngresos.fecha == f).all()
-    datos_salida = DBSalidas.query.order_by(DBSalidas.cantidad).all()
+    f2= request.form['fecha_fin']
+    fecha_actual = datetime.now()
+    datos = DBIngresos.query.filter(DBIngresos.fecha>=f,DBIngresos.fecha <=f2).all()
     #creacion pdf
     try:
         pdf = FPDF()
@@ -38,29 +40,30 @@ def download():
         pdf.set_font('Arial', 'B', 11)
         pdf.cell(120,6,"REGISTRO DE INVENTARIO\n",0,1,"C")
         pdf.set_font('Arial', 'B', 10)
-        pdf.cell(10,6,"#",1)
-        pdf.cell(10,6,"#",1)
-        pdf.cell(15,6,"#",1,1)
+        pdf.cell(10,6,str(fecha_actual.day),1)
+        pdf.cell(10,6,str(fecha_actual.month),1)
+        pdf.cell(15,6,str(fecha_actual.year),1,1)
         pdf.multi_cell(35,9,"",0)
 
         ####tabla
         pdf.set_font('Arial', 'B', 10)
         pdf.cell(10,8,"No",1)
         pdf.cell(30,8,"FECHA",1)
+        pdf.cell(30,8,"TIPO INGRESO",1)
         pdf.cell(70,8,"DESCRIPCIÓN",1)
-        pdf.cell(30,8,"UNIDAD",1)
-        pdf.cell(30,8,"CATEGORÍA",1)
-        pdf.multi_cell(0,8,"STOCK",1)
+        pdf.multi_cell(0,8,"CANTIDAD",1)
         #BODY
         #25 registros
         pdf.set_font('Arial', '', 7)
+        c=0
         for i in datos:
-            pdf.cell(10,6,"",1)
+            c+=1
+            print(c)
+            pdf.cell(10,6,str(c),1)
             pdf.cell(30,6,i.fecha,1)
+            pdf.cell(30,6,i.tipo_ingreso,1)
             pdf.cell(70,6,i.descripcion,1)
-            pdf.cell(30,6,i.unidad,1)
-            pdf.cell(30,6,i.categoria,1)
-            pdf.multi_cell(0,6,"#",1)
+            pdf.multi_cell(0,6,i.cantidad,1)
         #ENDBODY
         pdf.rect(10,61.1,190.0,184,"D")
         pdf.set_xy(10,250)

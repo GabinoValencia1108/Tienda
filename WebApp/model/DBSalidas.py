@@ -5,14 +5,14 @@ class DBSalidas(db.Model):
     fecha=db.Column(db.String(255))
     solicita =db.Column(db.String(255))
     descripcion =db.Column(db.String(255))
-    unidad =db.Column(db.String(255))
+    tipo_salida = db.Column(db.String(255))
     cantidad=db.Column(db.String(255))
     observaciones=db.Column(db.String(255))
-    def __init__(self,fecha,solicita,descripcion,unidad,cantidad,observaciones): 
+    def __init__(self,fecha,solicita,descripcion,tipo_salida,cantidad,observaciones): 
         self.fecha = fecha
         self.solicita = solicita
         self.descripcion = descripcion
-        self.unidad = unidad
+        self.tipo_salida = tipo_salida
         self.cantidad = cantidad
         self.observaciones = observaciones 
         

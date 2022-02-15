@@ -1,12 +1,18 @@
-from flask import render_template, redirect, session, url_for, flash, get_flashed_messages,request
+from flask import render_template, redirect, url_for, flash
 from flask.blueprints import Blueprint
-from flask_login import login_user, logout_user, current_user,login_required
-from WebApp import login_manager
-from WebApp.model.inicio import Iniciar, Usuario, Registrar, db
+from flask_login import current_user
+from WebApp.model.inicio import Usuario, Registrar, db
 from WebApp.model.frmPerfil import FrmPerfil
+from flask_login import login_required
 from WebApp import db
+from WebApp import admin_need
 registrar_bp = Blueprint("registrar_bp", __name__)
+@registrar_bp.before_request
+@login_required
+def constructor():
+    pass
 @registrar_bp.route("/registrar", methods=['GET', 'POST'])
+@admin_need
 def register():
     form = Registrar(meta={"csrf": False})
     if form.validate_on_submit():
@@ -23,6 +29,7 @@ def register():
         flash("error")
     return render_template("register.html", form=form)
 @registrar_bp.route('/lista-usuarios')
+@admin_need
 def user_list():
     lista_user = Usuario.query.all()
     return render_template("lista_user.html",usuarios=lista_user)

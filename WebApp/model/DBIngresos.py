@@ -5,15 +5,11 @@ class DBIngresos(db.Model):
     fecha = db.Column(db.String(255))
     tipo_ingreso = db.Column(db.String(255))
     descripcion = db.Column(db.String(255))
-    unidad = db.Column(db.String(255))
-    categoria = db.Column(db.String(255))
     cantidad = db.Column(db.String(255))
-    def __init__(self,fecha,tipo_ingreso,descripcion,unidad,categoria,cantidad):
+    def __init__(self,fecha,tipo_ingreso,descripcion,cantidad):
         self.fecha = fecha
         self.tipo_ingreso = tipo_ingreso
         self.descripcion = descripcion
-        self.unidad = unidad
-        self.categoria = categoria
         self.cantidad = cantidad
     def __repr__(self) -> str:
         return "<DBIngresos %r>" % self.id_ingreso

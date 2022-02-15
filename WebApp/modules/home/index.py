@@ -1,10 +1,6 @@
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template
 from flask.blueprints import Blueprint
-from sqlalchemy.orm import query
 from flask_login import login_required
-from WebApp import db
-from WebApp.model.inicio import Usuario
-from WebApp.modules.iniciar.login_user import login
 
 index = Blueprint("index", __name__)
 @index.before_request

@@ -1,7 +1,7 @@
 from WebApp import db
-class DBStock(db.Model):
-    __tablename__="stock"
-    id_stock = db.Column(db.Integer,primary_key=True,autoincrement=True)
+class DBMateriales(db.Model):
+    __tablename__="materiales"
+    id_materiales = db.Column(db.Integer,primary_key=True,autoincrement=True)
     descripcion = db.Column(db.String(255))
     unidad = db.Column(db.String(255))
     categoria = db.Column(db.String(255))
@@ -12,4 +12,4 @@ class DBStock(db.Model):
         self.categoria = categoria
         self.stock = stock
     def __repr__(self) -> str:
-        return "<DBStock %r>" % self.descripcion
+        return "<DBMateriales %r>" % self.id_materiales
