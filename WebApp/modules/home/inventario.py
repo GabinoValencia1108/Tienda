@@ -1,10 +1,20 @@
 from datetime import datetime
+<<<<<<< HEAD
 from flask import Flask,render_template,Blueprint,request,send_file
+=======
+from flask import Flask,render_template,Blueprint,flash,redirect,url_for,request,send_file
+>>>>>>> 0c2907a5d5b52b79ad110ed80370c7436a46e41d
 from fpdf import FPDF
 from ...model.frmInventario import FrmInventario
 from ...model.DBIngresos import DBIngresos
 from flask_login import login_required
 from datetime import datetime
+<<<<<<< HEAD
+=======
+from ...model.DBMateriales import DBMateriales
+from ...model.DBSalidas import DBSalidas
+from WebApp import db
+>>>>>>> 0c2907a5d5b52b79ad110ed80370c7436a46e41d
 inventario_bp = Blueprint("inventario_bp",__name__)
 @inventario_bp.before_request
 @login_required
@@ -63,6 +73,11 @@ def download():
             pdf.cell(30,6,i.fecha,1)
             pdf.cell(30,6,i.tipo_ingreso,1)
             pdf.cell(70,6,i.descripcion,1)
+<<<<<<< HEAD
+=======
+            pdf.cell(30,6,i.unidad,1)
+            pdf.cell(30,6,i.categoria,1)
+>>>>>>> 0c2907a5d5b52b79ad110ed80370c7436a46e41d
             pdf.multi_cell(0,6,i.cantidad,1)
         #ENDBODY
         pdf.rect(10,61.1,190.0,184,"D")

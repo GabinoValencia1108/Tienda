@@ -6,6 +6,7 @@
                 {{form.descripcion.label}}
                 {{form.descripcion(class='form-control')}}
             </div>
+<<<<<<< HEAD:WebApp/templates/fragment/_frmMateriales.html
             <div class="col">
                 {{form.unidad.label}}
                 {{form.unidad(class='form-control')}}
@@ -20,6 +21,8 @@
                 {{ form.stock.label}}
                 {{ form.stock(class="form-control") }}
             </div>
+=======
+>>>>>>> 0c2907a5d5b52b79ad110ed80370c7436a46e41d:WebApp/templates/fragment/_frmStock.html
         </div>
     </div>
     <br/>
@@ -44,6 +47,7 @@
                 Descripcion
             </th>
             <th>
+<<<<<<< HEAD:WebApp/templates/fragment/_frmMateriales.html
                 Unidad
             </th>
             <th>
@@ -53,6 +57,8 @@
                 Existencias
             </th>
             <th>
+=======
+>>>>>>> 0c2907a5d5b52b79ad110ed80370c7436a46e41d:WebApp/templates/fragment/_frmStock.html
                 Opciones
             </th>
         </tr>
@@ -66,6 +72,7 @@
                     </td>
                     <td>
                         {{materiales['descripcion']}}
+<<<<<<< HEAD:WebApp/templates/fragment/_frmMateriales.html
                     </td>
                     <td>
                         {{materiales['unidad']}}
@@ -79,6 +86,8 @@
                         {% else %}
                             <span style="color:red;">{{materiales['stock']}}</span>
                         {% endif %}
+=======
+>>>>>>> 0c2907a5d5b52b79ad110ed80370c7436a46e41d:WebApp/templates/fragment/_frmStock.html
                     </td>
                     <td>
                         <a href="{{url_for('materiales_bp.materiales_edit',id=materiales['id_materiales'])}}" title="Editar ingreso" rel="noopener noreferrer">

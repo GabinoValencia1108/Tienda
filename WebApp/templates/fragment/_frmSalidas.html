@@ -34,6 +34,7 @@
                 {{ form.descripcion.label }}
                 {{ form.descripcion(class='form-control') }}
             </div>
+<<<<<<< HEAD
             <div class="col-xl-6">
                 {{ form.cantidad.label }}
                 {{ form.cantidad(class='form-control') }}
@@ -43,7 +44,22 @@
             <div class="col-xl-12">
                 {{form.agregar.label}}
                 {{form.agregar(class='form-control')}}
+=======
+            <div class="col-xl-4">
+                {{form.tipo_ingreso.label}}
+                {{form.tipo_ingreso(class='form-control')}}
             </div>
+            <div class="col-xl-4">
+                {{ form.cantidad.label }}
+                {{ form.cantidad(class='form-control') }}
+            </div>
+        <div class="row align-items-center">
+            <div class="col">
+                {{ form.observaciones.label}}
+                {{ form.observaciones(class='form-control')}}
+>>>>>>> 0c2907a5d5b52b79ad110ed80370c7436a46e41d
+            </div>
+        </div>    
         </div>
     </div>
     
@@ -78,6 +94,9 @@
                 Tipo de salida
             </th>
             <th>
+                tipo ingreso
+            </th>
+            <th>
                 Cantidad
             </th>
             <th>
@@ -106,6 +125,9 @@
                     </td>
                     <td>
                         {{salida['tipo_salida']}}
+                    </td>
+                    <td>
+                        {{salida['tipo_ingreso']}}
                     </td>
                     <td>
                         {{salida['cantidad']}}

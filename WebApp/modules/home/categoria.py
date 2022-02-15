@@ -2,12 +2,16 @@ from flask import render_template,Blueprint,flash,redirect,url_for,request
 from ...model.frmCategoria import FrmCategoria
 from ...model.DBCategoria import DBCategoria
 from WebApp import db
+<<<<<<< HEAD
 from flask_login import login_required
 categoria_bp = Blueprint("categoria_bp",__name__)
 @categoria_bp.before_request
 @login_required
 def constructor():
     pass
+=======
+categoria_bp = Blueprint("categoria_bp",__name__)
+>>>>>>> 0c2907a5d5b52b79ad110ed80370c7436a46e41d
 @categoria_bp.route('/categoria/',methods=['GET','POST'])
 def categoria_add():
     frmCategoria = FrmCategoria(meta={'csrf': False})

@@ -1,6 +1,7 @@
 from flask import render_template,Blueprint,flash,redirect,url_for,request
 from ...model.frmUnidad import FrmUnidad
 from ...model.DBUnidad import DBUnidad
+<<<<<<< HEAD
 from flask_login import login_required
 from WebApp import db
 unidad_bp = Blueprint("unidad_bp",__name__)
@@ -8,6 +9,10 @@ unidad_bp = Blueprint("unidad_bp",__name__)
 @login_required
 def constructor():
     pass
+=======
+from WebApp import db
+unidad_bp = Blueprint("unidad_bp",__name__)
+>>>>>>> 0c2907a5d5b52b79ad110ed80370c7436a46e41d
 @unidad_bp.route('/unidad/',methods=['GET','POST'])
 def unidad_add():
     frmUnidad = FrmUnidad(meta={'csrf': False})

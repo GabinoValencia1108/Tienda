@@ -1,5 +1,12 @@
 from flask import render_template,Blueprint,flash,redirect,url_for,request
+<<<<<<< HEAD
 from WebApp.model.DBMateriales import DBMateriales
+=======
+from WebApp.model.DBCategoria import DBCategoria
+from WebApp.model.DBMateriales import DBMateriales
+
+from WebApp.model.DBUnidad import DBUnidad
+>>>>>>> 0c2907a5d5b52b79ad110ed80370c7436a46e41d
 from ...model.frmIngresos import FrmIngresos
 from ...model.frm_edit_Ingreso import FrmIngresos_edit
 from datetime import datetime
@@ -20,6 +27,11 @@ def ingreso_add():
     list_descripcion = [(des.descripcion,des.descripcion)for des in DBMateriales.query.all()]
     tipos_ingresos = [(tipo.tipos,tipo.tipos)for tipo in DBTipos.query.all()]
     frmIngresos.tipo_ingreso.choices = tipos_ingresos
+<<<<<<< HEAD
+=======
+    list_unidad = [(des.unidad,des.unidad)for des in DBUnidad.query.all()]
+    list_categoria = [(des.categoria,des.categoria)for des in DBCategoria.query.all()]
+>>>>>>> 0c2907a5d5b52b79ad110ed80370c7436a46e41d
     frmIngresos.descripcion.choices = list_descripcion
     if frmIngresos.validate_on_submit():
 
