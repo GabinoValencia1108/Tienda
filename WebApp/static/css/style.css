@@ -27,3 +27,20 @@
       border-radius:2px;
       padding:5px
     }
+    .pie-pagina{
+      width: 100%;
+      background-color:tan;
+      padding: 8px;
+      margin: 0 auto;
+    }
+    .centrar{
+      margin: auto;
+      display: block;
+    }
+    .center{
+      margin: auto;
+      display: block;
+      color:white;
+    }
+
+

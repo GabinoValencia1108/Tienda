@@ -3,23 +3,16 @@ from flask import Flask,render_template,Blueprint,flash,redirect,url_for,request
 from fpdf import FPDF
 from ...model.frmRequerimiento import FrmRequerimiento
 from ...model.DBIngresos import DBIngresos
-<<<<<<< HEAD
 from flask_login import login_required
-=======
-
->>>>>>> 0c2907a5d5b52b79ad110ed80370c7436a46e41d
 from datetime import datetime
 from ...model.DBMateriales import DBMateriales
 from ...model.DBSalidas import DBSalidas
 from WebApp import db
 requerimiento_bp = Blueprint("requerimiento_bp",__name__)
-<<<<<<< HEAD
 @requerimiento_bp.before_request
 @login_required
 def constructor():
     pass
-=======
->>>>>>> 0c2907a5d5b52b79ad110ed80370c7436a46e41d
 @requerimiento_bp.route('/requerimiento/',methods=['GET','POST'])
 def requerimiento_add():
     frmRequerimiento = FrmRequerimiento(meta={'csrf': False})

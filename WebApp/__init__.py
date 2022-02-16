@@ -29,10 +29,7 @@ from WebApp.modules.home.salidas import salidas_bp
 from WebApp.modules.home.empleados import empleados_bp
 from WebApp.modules.home.registro import registrar_bp
 from WebApp.modules.home.inventario import inventario_bp
-<<<<<<< HEAD
 from WebApp.modules.home.invsalida import salidainv_bp
-=======
->>>>>>> 0c2907a5d5b52b79ad110ed80370c7436a46e41d
 from WebApp.modules.home.requerimiento import requerimiento_bp
 from WebApp.modules.home.unidad import unidad_bp
 from WebApp.modules.home.categoria import categoria_bp
@@ -47,15 +44,8 @@ app.register_blueprint(salidas_bp)
 app.register_blueprint(empleados_bp)
 app.register_blueprint(registrar_bp)
 app.register_blueprint(inventario_bp)
-<<<<<<< HEAD
 app.register_blueprint(salidainv_bp)
 app.register_blueprint(requerimiento_bp)
 app.register_blueprint(unidad_bp)
 app.register_blueprint(categoria_bp)
 db.create_all()
-=======
-app.register_blueprint(requerimiento_bp)
-app.register_blueprint(unidad_bp)
-app.register_blueprint(categoria_bp)
-db.create_all()
->>>>>>> 0c2907a5d5b52b79ad110ed80370c7436a46e41d
